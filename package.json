@@ -1,0 +1,16 @@
+{
+  "name": "extendown",
+  "version": "0.1.0",
+  "description": "extendable markdown compiler",
+  "main": "dist/extendown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markdown",
+    "compiler",
+    "extendable"
+  ],
+  "author": "jeffwang <cunxuanwang@163.com>",
+  "license": "MIT"
+}
