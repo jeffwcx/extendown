@@ -1,4 +1,4 @@
-# Extendown
+# Extendown ![build](https://travis-ci.org/jeffwcx/extendown.svg?branch=master)
 ## extendable markdown compiler
 
 

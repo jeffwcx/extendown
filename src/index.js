@@ -18,10 +18,7 @@ function parse(md) {
 }
 
 
-
-const Extdown = {
+export {
   parse,
   Extendown,
 };
-
-module.exports = Extdown;
