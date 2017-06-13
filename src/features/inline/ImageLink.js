@@ -3,9 +3,9 @@
  * tranform []() -> <a></a>
  * tranfrom !?[][] -> <img> or <a>
  */
-import { getPredefined, htmlTemplate } from '../../helper';
+import { getPredefined, htmlTemplate, processInline } from '../../helper';
 
-const regStr = '(?:(!)?\\[([^\\[\\n]*)\\](?:(?:\\(([^\\(\\n)]*)\\))|(?:\\[([^\\(\\n)]*)\\])))';
+const regStr = '(?:(!)?\\[(.*)\\](?:(?:\\(([^(\\n)]*)\\))|(?:\\[([^(\\n)]*)\\])))';
 const referReg = '^\\s{0,3}\\[([^\\n\\[]+)\\]:[\\t ]+<?(.+)>?[\\t ]+\\n?[\\t ]*(?:(?:(["\'])(.*?)\\3)?|(?:\\(.*?\\))?)[\\t ]*$';
 
 function getImage(alt, src, title) {
@@ -30,7 +30,7 @@ function processImageLink(section) {
         // remove the tag wrapped title
         arr[1] = arr[1].replace(/["']/g, '');
       }
-      return m1 ? htmlTemplate(getImage, m2, arr[0], arr[1]) : htmlTemplate(getLink, m2, arr[0], arr[1]);
+      return m1 ? htmlTemplate(getImage, m2, arr[0], arr[1]) : htmlTemplate(getLink, processInline(m2), arr[0], arr[1]);
     }
     const matchArr = getPredefined()[referReg] || [];
     // first way to find match
@@ -38,14 +38,14 @@ function processImageLink(section) {
       for (let i = 0; i < matchArr.length; i += 1) {
         const tmp = matchArr[i];
         if (tmp[1].toLowerCase() === m2.toLowerCase()) {
-          return m1 ? htmlTemplate(getImage, m2, tmp[2], tmp[4]) : htmlTemplate(getLink, m2, tmp[2], tmp[4]);
+          return m1 ? htmlTemplate(getImage, m2, tmp[2], tmp[4]) : htmlTemplate(getLink, processInline(m2), tmp[2], tmp[4]);
         }
       }
     } else {
       for (let i = 0; i < matchArr.length; i += 1) {
         const tmp = matchArr[i];
         if (tmp[1].toLowerCase() === m4.toLowerCase()) {
-          return m1 ? htmlTemplate(getImage, m2, tmp[2], tmp[4]) : htmlTemplate(getLink, m2, tmp[2], tmp[4]);
+          return m1 ? htmlTemplate(getImage, m2, tmp[2], tmp[4]) : htmlTemplate(getLink, processInline(m2), tmp[2], tmp[4]);
         }
       }
     }

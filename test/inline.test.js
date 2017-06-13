@@ -69,6 +69,10 @@ describe('Image and Link test', function() {
     var extend = new Extendown('[ID]: http://baidu.com "title"\n[link][id]');
     expect(extend.getHTML()).to.be.equal('\n<p><a title="title" href="http://baidu.com" target="_blank">link</a></p>');;
   });
+
+  it('nest link', function() {
+    expect(parse('[![img](http://baidu.com)](http://baidu.com "title")')).to.be.equal('<p><a title="title" href="http://baidu.com" target="_blank"><img alt="img" src="http://baidu.com" /></a></p>');
+  });
 });
 
 describe('Strikethrough test', function(){
