@@ -1,4 +1,4 @@
-# Extendown ![build](https://travis-ci.org/jeffwcx/extendown.svg?branch=master)
+# Extendown ![build](https://travis-ci.org/jeffwcx/extendown.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/jeffwcx/extendown/badge.svg?branch=master)](https://coveralls.io/github/jeffwcx/extendown?branch=master)
 ## extendable markdown compiler
 
 
