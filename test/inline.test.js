@@ -91,7 +91,7 @@ describe('Strikethrough test', function(){
 describe('Emoji test', function(){
   it('normal', function() {
     var extend = new Extendown(':+1:');
-    expect(extend.getHTML()).to.be.equal('<p><img alt=":+1:" width="20" height="20" src="./+1.png"></p>');
+    expect(extend.getHTML()).to.be.equal('<p><img alt=":+1:" width="20" height="20" src="https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png"></p>');
   });
 
   it('illegal chars', function() {
@@ -101,7 +101,7 @@ describe('Emoji test', function(){
 
   it('continuous chars', function() {
     var extend = new Extendown(':+1::jp:');
-    expect(extend.getHTML()).to.be.equal('<p><img alt=":+1:" width="20" height="20" src="./+1.png"><img alt=":jp:" width="20" height="20" src="./jp.png"></p>');
+    expect(extend.getHTML()).to.be.equal('<p><img alt=":+1:" width="20" height="20" src="https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png"><img alt=":jp:" width="20" height="20" src="https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/jp.png"></p>');
   });
 });
 

@@ -3,13 +3,12 @@
  */
 
 import { htmlTemplate } from '../../helper';
+import config from '../../config';
 
 const regStr = ':([\\w\\d\\+-]+):';
-const path = './'; // emoji image path
-const type = 'png';
 
 function getHTML(content, source) {
-  return `<img alt="${source}" width="20" height="20" src="${path}${content}.${type}">`;
+  return `<img alt="${source}" width="20" height="20" src="${config.emoji.path}${config.emoji.nameFormat(content)}.${config.emoji.ext}">`;
 }
 
 function processEmoji(source) {
