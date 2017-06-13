@@ -6,7 +6,7 @@ before_install:
 install:
   - npm install --registry http://registry.npmjs.org
 script:
-  - npm run
+  - npm test
 cache:
   directories:
     - "node_modules"
