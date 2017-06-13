@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "6"
+before_install:
+  - npm install -g npm@4
+install:
+  - npm install --registry http://registry.npmjs.org
+script:
+  - npm run
+cache:
+  directories:
+    - "node_modules"
